@@ -50,10 +50,9 @@ class CategoryRepository extends ServiceEntityRepository
         ;
     }
 
-    public function findOneById($value)
+    public function findCategoryById($value): ?Category
     {
         return $this->createQueryBuilder('c')
-                ->select('c.id, c.name')
                 ->andWhere('c.id = :val')
                 ->setParameter('val', $value)
                 ->getQuery()
